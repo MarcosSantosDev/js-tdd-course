@@ -3,15 +3,14 @@ const { expect } = require('chai');
 describe('Main', () => {
   let arr;
 
-  before(() => { });
-
-  after(() => { });
-
   beforeEach(() => {
     arr = [1, 2, 3];
   });
 
-  afterEach(() => { });
+  // smoke test
+  it('should be an array', () => {
+    expect(arr).to.be.a('array');
+  });
 
   it('should have a size of 4 when push another value to the array', () => {
     arr.push(4);
