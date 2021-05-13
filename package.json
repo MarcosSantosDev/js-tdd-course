@@ -6,8 +6,8 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint src/**/*.js",
     "prepare": "husky install && husky add .husky/pre-commit 'npm run lint'",
-    "test": "./node_modules/mocha/bin/mocha tests/**/*.spec.js",
-    "test:dev": "./node_modules/mocha/bin/mocha tests/**/*.spec.js --watch"
+    "test": "./node_modules/mocha/bin/mocha tests/**/*.spec.js --require babel-register",
+    "test:dev": "./node_modules/mocha/bin/mocha tests/**/*.spec.js --require babel-register --watch"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,8 @@
   },
   "homepage": "https://github.com/MarcosSantosDev/js-tdd-course#readme",
   "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
     "chai": "^4.3.4",
     "eslint": "^7.25.0",
     "eslint-config-airbnb-base": "^14.2.1",
