@@ -1,29 +1,64 @@
-const { expect } = require('chai');
+import { expect } from 'chai';
+import {
+  sum,
+  sub,
+  mult,
+  div,
+} from '../src/main';
 
-describe('Main', () => {
-  let arr;
+describe('Calc', () => {
+  // smoke tests
+  describe('Smoke tests', () => {
+    it('should exist the method sum', () => {
+      expect(sum).to.exist;
+      expect(sum).to.be.a('function');
+    });
 
-  beforeEach(() => {
-    arr = [1, 2, 3];
+    it('should exist the method sub', () => {
+      expect(sub).to.exist;
+      expect(sub).to.be.a('function');
+    });
+
+    it('should exist the method mult', () => {
+      expect(mult).to.exist;
+      expect(mult).to.be.a('function');
+    });
+
+    it('should exist the method div', () => {
+      expect(div).to.exist;
+      expect(div).to.be.a('function');
+    });
   });
 
-  // smoke test
-  it('should be an array', () => {
-    expect(arr).to.be.a('array');
+  describe('Sum', () => {
+    it('should return 4 when sum(2, 2)', () => {
+      expect(sum(2, 2)).to.be.equal(4);
+    });
   });
 
-  it('should have a size of 4 when push another value to the array', () => {
-    arr.push(4);
-    expect(arr).to.have.lengthOf(4);
+  describe('Sub', () => {
+    it('should return 4 when sub(8, 4)', () => {
+      expect(sub(8, 4)).to.be.equal(4);
+    });
+
+    it('should return -4 when sub(4, 8)', () => {
+      expect(sub(4, 8)).to.be.equal(-4);
+    });
   });
 
-  it('should not include the number 3 in the array when pop the last position', () => {
-    arr.pop();
-    expect(arr).to.not.include(3);
+  describe('Mult', () => {
+    it('should return 4 when mult(2, 2)', () => {
+      expect(mult(2, 2)).to.be.equal(4);
+    });
   });
 
-  it('should have a size of 2 when pop a value from the array', () => {
-    arr.pop();
-    expect(arr).to.have.lengthOf(2);
+  describe('Div', () => {
+    it('should return 2 when div(4, 2)', () => {
+      expect(div(4, 2)).to.be.equal(2);
+    });
+
+    it('should return `It is not possible to divide by zero!` when div(4, 0)', () => {
+      expect(div(4, 0)).to.be.equal('It is not possible to divide by zero!');
+    });
   });
 });
