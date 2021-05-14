@@ -7,7 +7,23 @@
     "lint": "./node_modules/.bin/eslint src/**/*.js",
     "prepare": "husky install && husky add .husky/pre-commit 'npm run lint'",
     "test": "./node_modules/mocha/bin/mocha tests/**/*.spec.js --require babel-register",
-    "test:dev": "./node_modules/mocha/bin/mocha tests/**/*.spec.js --require babel-register --watch"
+    "test:dev": "./node_modules/mocha/bin/mocha tests/**/*.spec.js --require babel-register --watch",
+    "coverage": "nyc npm run test"
+  },
+  "nyc": {
+    "watermarks": {
+      "lines": 80,
+      "functions": 80,
+      "branches": 80,
+      "statements": 80
+    },
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "tests/**"
+    ]
   },
   "repository": {
     "type": "git",
@@ -32,6 +48,7 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "husky": "^6.0.0",
-    "mocha": "^8.4.0"
+    "mocha": "^8.4.0",
+    "nyc": "^15.1.0"
   }
 }
